@@ -1,8 +1,8 @@
 class Box3{
     constructor(x,y,width,height){
         var options={
-          isStatic: true,
-          restitution: 0          
+          isStatic: false,
+          restitution: 1          
        }
        this.x=x;
        this.y=y;

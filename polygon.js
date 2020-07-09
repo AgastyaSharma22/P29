@@ -1,15 +1,15 @@
 class Polygon{
     constructor(x,y,radius){
       var options={
-          isStatic: true,
-          restitution: 0.5
+          isStatic: false,
+          restitution: 1
       }
       this.x=x;
       this.y=y;
       this.radius=radius;
       this.body=Bodies.circle(x,y,radius,options);
       World.add(world, this.body);
-      this.image=loadImage("paper.png");
+      this.image=loadImage("polygon.png");
     }
     display(){
         imageMode(CENTER);
