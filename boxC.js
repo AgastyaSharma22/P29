@@ -1,6 +1,6 @@
 class Box4{
     constructor(x,y,width,height){
-        var options={
+              var options={
           isStatic: false,
           restitution: 1       
        }
@@ -16,14 +16,6 @@ class Box4{
        var pos =this.body.position;
        rectMode(CENTER);
        fill("pink");
-       if(this.body.speed<1){
-         rect(pos.x, pos.y, this.width, this.height);
-           this.Visiblity=255;
-         }else{
-           World.remove(world, this.body);
-           push();
-           this.Visiblity=this.Visiblity-5;        
-          pop(); 
-         }
+       rect(pos.x,pos.y,this.width,this.height);
    }
 }
