@@ -15,16 +15,15 @@ class Box3{
    display(){
        var pos =this.body.position;
        rectMode(CENTER);
-       fill("green")
-       rect(pos.x, pos.y, this.width, this.height);
-       if(this.body.speed<3){
-        this.Visiblity=255;
-      }else{
-        World.remove(world, this.body);
-        push();
-        this.Visiblity=this.Visiblity-5
-       tint(255,this.Visiblity);
-       pop(); 
-      }
+       fill("green");
+       if(this.body.speed<1){
+         rect(pos.x, pos.y, this.width, this.height);
+           this.Visiblity=255;
+         }else{
+           World.remove(world, this.body);
+           push();
+           this.Visiblity=this.Visiblity-5;        
+          pop(); 
+         }
    }
 }
