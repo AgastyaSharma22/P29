@@ -2,7 +2,7 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
-
+var score=0;
   function setup() {
   createCanvas(800,400);
   engine = Engine.create();
@@ -37,24 +37,24 @@ function draw() {
   background(255);  
   
   Engine.update(engine);
- 
+  text("Score :"+score,700,50);
   stand.display();
-  block1.display();
-  block2.display();
-  block3.display();
-  block4.display();
-  block5.display();
-  block6.display();
-  block7.display();
-  block8.display();
-  block9.display();
-  block10.display();
-  block11.display();
-  block12.display();
-  block13.display();
-  block14.display();
-  block15.display();
-  block16.display();
+  block1.display();block1.score();
+  block2.display();block2.score();
+  block3.display();block3.score();
+  block4.display();block4.score();
+  block5.display();block5.score();
+  block6.display();block6.score();
+  block7.display();block7.score();
+  block8.display();block8.score();
+  block9.display();block9.score();
+  block10.display();block10.score();
+  block11.display();block11.score();
+  block12.display();block12.score();
+  block13.display();block13.score();
+  block14.display();block14.score();
+  block15.display();block15.score();
+  block16.display();block16.score();
   polygon.display();
   sling.display();
 }
@@ -65,10 +65,4 @@ function mouseDragged(){
 
 function mouseReleased(){
   sling.fly();
-}
-
-function keyPressed(){
-  if(keyCode===32){
-      sling.attach(polygon.body);
-  }
 }

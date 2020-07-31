@@ -17,5 +17,13 @@ class Box3{
        rectMode(CENTER);
        fill("green");
        rect(pos.x,pos.y,this.width,this.height);
+       if(this.body.y=410){
+        this.Visiblity=this.Visiblity-5
+    }
    }
+   score(){
+    if(this.Visiblity<0 && this.Visiblity>-1005){
+      score++;
+    }
+  }
 }
