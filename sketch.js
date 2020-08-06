@@ -3,12 +3,17 @@ const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 var score=0;
+
+   function preload(){
+     getBackgroundImg();
+   }
   function setup() {
   createCanvas(800,400);
   engine = Engine.create();
   world = engine.world;
   
   stand=new Ground(470,300,300,20);
+  ground=new Ground(400,390,900,20);
   //bottom row
   block1=new Box1(410,280,20,20);
   block2=new Box1(430,280,20,20);
@@ -35,34 +40,68 @@ var score=0;
 
 function draw() {
   background(255);  
-  
+
   Engine.update(engine);
-  text("Score :"+score,700,50);
+  text("Score :"+score,700,40);
   stand.display();
-  block1.display();block1.score();
-  block2.display();block2.score();
-  block3.display();block3.score();
-  block4.display();block4.score();
-  block5.display();block5.score();
-  block6.display();block6.score();
-  block7.display();block7.score();
-  block8.display();block8.score();
-  block9.display();block9.score();
-  block10.display();block10.score();
-  block11.display();block11.score();
-  block12.display();block12.score();
-  block13.display();block13.score();
-  block14.display();block14.score();
-  block15.display();block15.score();
-  block16.display();block16.score();
+  ground.display();
+  block1.display();
+  block1.score();
+  block2.display();
+  block2.score();
+  block3.display();
+  block3.score();
+  block4.display();
+  block4.score();
+  block5.display();
+  block5.score();
+  block6.display();
+  block6.score();
+  block7.display();
+  block7.score();
+  block8.display();
+  block8.score();
+  block9.display();
+  block9.score();
+  block10.display();
+  block10.score();
+  block11.display();
+  block11.score();
+  block12.display();
+  block12.score();
+  block13.display();
+  block13.score();
+  block14.display();
+  block14.score();
+  block15.display();
+  block15.score();
+  block16.display();
+  block16.score();
   polygon.display();
   sling.display();
 }
 function mouseDragged(){
   Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
 }
-
+function keyPressed(){
+  if(keyCode===32){
+    sling.attach(polygon.body);
+  }
+}
 
 function mouseReleased(){
   sling.fly();
+}
+async function getBackgroundImg(){
+  var response=await fetch( "http://worldtimeapi.org/api/timezone/Asia/Kolkata")
+  var responseJSON=await response.json();
+
+  var datetime=responseJSON.datetime;
+  var hour= datetime.slice(11,13);
+
+  if(hour>=06 && hour<=18){
+      background.shapeColor="yellow";
+  }else{
+      background.shapeColor="black";
+  }
 }
